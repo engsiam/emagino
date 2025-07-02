@@ -1,4 +1,117 @@
+import React, { useState } from "react";
+type Project = {
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+};
+
+// Portfolio projects data
+  const allProjects = [
+    {
+      title: "Ethereal Dreams Campaign",
+      category: "Fashion",
+      description:
+        "AI-generated fashion campaign that increased engagement by 240%",
+      image:
+        "https://readdy.ai/api/search-image?query=High%20fashion%20model%20in%20avant%20garde%20couture%20floating%20in%20surreal%20minimalist%20space%20with%20flowing%20fabric%20and%20light%20trails%2C%20luxury%20fashion%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20elements%2C%20cinematic%20editorial%20style%20with%20artistic%20composition%2C%20premium%20campaign%20visual%20with%20modern%20aesthetic&width=600&height=400&seq=portfolio-1&orientation=landscape",
+    },
+    {
+      title: "Tech Revolution Series",
+      category: "Technology",
+      description: "Futuristic product videos for a leading tech innovator",
+      image:
+        "https://readdy.ai/api/search-image?query=Innovative%20tech%20devices%20floating%20in%20modern%20showroom%20with%20interactive%20holographic%20displays%20and%20dynamic%20light%20patterns%2C%20premium%20product%20photography%20with%20orange%20accent%20lighting%20and%20floating%20UI%20elements%2C%20cinematic%20technology%20showcase%20with%20artistic%20composition%2C%20luxury%20presentation%20space&width=600&height=400&seq=portfolio-2&orientation=landscape",
+    },
+    {
+      title: "Culinary Wonders",
+      category: "Food & Beverage",
+      description:
+        "Mouth-watering content that drove 125% increase in conversions",
+      image:
+        "https://readdy.ai/api/search-image?query=Exquisite%20culinary%20creation%20in%20modern%20luxury%20restaurant%20setting%20with%20artistic%20plating%20and%20floating%20ingredients%2C%20premium%20food%20photography%20with%20dramatic%20spotlights%20and%20orange%20accent%20lighting%2C%20cinematic%20gastronomy%20presentation%20with%20smoke%20elements%2C%20high%20end%20dining%20atmosphere&width=600&height=400&seq=portfolio-3&orientation=landscape",
+    },
+    {
+      title: "Urban Exploration",
+      category: "Travel",
+      description:
+        "City guide series that captivated millions across social platforms",
+      image:
+        "https://readdy.ai/api/search-image?query=Futuristic%20cityscape%20with%20floating%20transportation%20pods%20and%20holographic%20billboards%2C%20modern%20urban%20photography%20with%20dramatic%20lighting%20and%20orange%20light%20trails%2C%20cinematic%20architectural%20visualization%20with%20geometric%20patterns%2C%20premium%20travel%20campaign%20visual%20with%20artistic%20composition&width=600&height=400&seq=portfolio-4&orientation=landscape",
+    },
+    {
+      title: "Wellness Revolution",
+      category: "Health",
+      description:
+        "Inspiring wellness content that built a community of 500K followers",
+      image:
+        "https://readdy.ai/api/search-image?query=Modern%20wellness%20space%20with%20floating%20meditation%20platforms%20and%20energy%20visualization%2C%20premium%20fitness%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20health%20campaign%20visual%20with%20artistic%20composition%2C%20luxury%20wellness%20environment%20with%20holographic%20elements&width=600&height=400&seq=portfolio-5&orientation=landscape",
+    },
+    {
+      title: "Sustainable Future",
+      category: "Environment",
+      description:
+        "Award-winning campaign highlighting eco-friendly innovations",
+      image:
+        "https://readdy.ai/api/search-image?query=Futuristic%20eco%20friendly%20technology%20in%20modern%20sustainable%20architecture%20with%20floating%20garden%20elements%2C%20premium%20environmental%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20green%20innovation%20showcase%20with%20artistic%20composition%2C%20luxury%20sustainable%20design&width=600&height=400&seq=portfolio-6&orientation=landscape",
+    },
+    {
+      title: "Wellness Revolution",
+      category: "Health",
+      description:
+        "Inspiring wellness content that built a community of 500K followers",
+      image:
+        "https://readdy.ai/api/search-image?query=Modern%20wellness%20space%20with%20floating%20meditation%20platforms%20and%20energy%20visualization%2C%20premium%20fitness%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20health%20campaign%20visual%20with%20artistic%20composition%2C%20luxury%20wellness%20environment%20with%20holographic%20elements&width=600&height=400&seq=portfolio-5&orientation=landscape",
+    },
+    {
+      title: "Wellness Revolution",
+      category: "Health",
+      description:
+        "Inspiring wellness content that built a community of 500K followers",
+      image:
+        "https://readdy.ai/api/search-image?query=Modern%20wellness%20space%20with%20floating%20meditation%20platforms%20and%20energy%20visualization%2C%20premium%20fitness%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20health%20campaign%20visual%20with%20artistic%20composition%2C%20luxury%20wellness%20environment%20with%20holographic%20elements&width=600&height=400&seq=portfolio-5&orientation=landscape",
+    },
+    {
+      title: "Wellness Revolution",
+      category: "Health",
+      description:
+        "Inspiring wellness content that built a community of 500K followers",
+      image:
+        "https://readdy.ai/api/search-image?query=Modern%20wellness%20space%20with%20floating%20meditation%20platforms%20and%20energy%20visualization%2C%20premium%20fitness%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20health%20campaign%20visual%20with%20artistic%20composition%2C%20luxury%20wellness%20environment%20with%20holographic%20elements&width=600&height=400&seq=portfolio-5&orientation=landscape",
+    },
+    {
+      title: "Wellness Revolution",
+      category: "Health",
+      description:
+        "Inspiring wellness content that built a community of 500K followers",
+      image:
+        "https://readdy.ai/api/search-image?query=Modern%20wellness%20space%20with%20floating%20meditation%20platforms%20and%20energy%20visualization%2C%20premium%20fitness%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20health%20campaign%20visual%20with%20artistic%20composition%2C%20luxury%20wellness%20environment%20with%20holographic%20elements&width=600&height=400&seq=portfolio-5&orientation=landscape",
+    },
+  ];
+
 const Portfolio = () => {
+  // Initialize state to control the number of portfolio items shown
+  const [projectsToShow, setProjectsToShow] = useState(6);
+  const [modalProject, setModalProject] = useState<Project | null>(null);
+
+  
+  // Slice the portfolio items to show based on `projectsToShow`
+  const projectsToDisplay = allProjects.slice(0, projectsToShow);
+
+  // Handle loading more projects
+  const loadMoreProjects = () => {
+    setProjectsToShow((prev) => prev + 3); // Load 3 more projects each time
+  };
+
+  // Trap scroll when modal is open
+  React.useEffect(() => {
+    if (modalProject) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [modalProject]);
+
   return (
     <section id="portfolio" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
@@ -12,57 +125,9 @@ const Portfolio = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {[
-            {
-              title: "Ethereal Dreams Campaign",
-              category: "Fashion",
-              description:
-                "AI-generated fashion campaign that increased engagement by 240%",
-              image:
-                "https://readdy.ai/api/search-image?query=High%20fashion%20model%20in%20avant%20garde%20couture%20floating%20in%20surreal%20minimalist%20space%20with%20flowing%20fabric%20and%20light%20trails%2C%20luxury%20fashion%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20elements%2C%20cinematic%20editorial%20style%20with%20artistic%20composition%2C%20premium%20campaign%20visual%20with%20modern%20aesthetic&width=600&height=400&seq=portfolio-1&orientation=landscape",
-            },
-            {
-              title: "Tech Revolution Series",
-              category: "Technology",
-              description:
-                "Futuristic product videos for a leading tech innovator",
-              image:
-                "https://readdy.ai/api/search-image?query=Innovative%20tech%20devices%20floating%20in%20modern%20showroom%20with%20interactive%20holographic%20displays%20and%20dynamic%20light%20patterns%2C%20premium%20product%20photography%20with%20orange%20accent%20lighting%20and%20floating%20UI%20elements%2C%20cinematic%20technology%20showcase%20with%20artistic%20composition%2C%20luxury%20presentation%20space&width=600&height=400&seq=portfolio-2&orientation=landscape",
-            },
-            {
-              title: "Culinary Wonders",
-              category: "Food & Beverage",
-              description:
-                "Mouth-watering content that drove 125% increase in conversions",
-              image:
-                "https://readdy.ai/api/search-image?query=Exquisite%20culinary%20creation%20in%20modern%20luxury%20restaurant%20setting%20with%20artistic%20plating%20and%20floating%20ingredients%2C%20premium%20food%20photography%20with%20dramatic%20spotlights%20and%20orange%20accent%20lighting%2C%20cinematic%20gastronomy%20presentation%20with%20smoke%20elements%2C%20high%20end%20dining%20atmosphere&width=600&height=400&seq=portfolio-3&orientation=landscape",
-            },
-            {
-              title: "Urban Exploration",
-              category: "Travel",
-              description:
-                "City guide series that captivated millions across social platforms",
-              image:
-                "https://readdy.ai/api/search-image?query=Futuristic%20cityscape%20with%20floating%20transportation%20pods%20and%20holographic%20billboards%2C%20modern%20urban%20photography%20with%20dramatic%20lighting%20and%20orange%20light%20trails%2C%20cinematic%20architectural%20visualization%20with%20geometric%20patterns%2C%20premium%20travel%20campaign%20visual%20with%20artistic%20composition&width=600&height=400&seq=portfolio-4&orientation=landscape",
-            },
-            {
-              title: "Wellness Revolution",
-              category: "Health",
-              description:
-                "Inspiring wellness content that built a community of 500K followers",
-              image:
-                "https://readdy.ai/api/search-image?query=Modern%20wellness%20space%20with%20floating%20meditation%20platforms%20and%20energy%20visualization%2C%20premium%20fitness%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20health%20campaign%20visual%20with%20artistic%20composition%2C%20luxury%20wellness%20environment%20with%20holographic%20elements&width=600&height=400&seq=portfolio-5&orientation=landscape",
-            },
-            {
-              title: "Sustainable Future",
-              category: "Environment",
-              description:
-                "Award-winning campaign highlighting eco-friendly innovations",
-              image:
-                "https://readdy.ai/api/search-image?query=Futuristic%20eco%20friendly%20technology%20in%20modern%20sustainable%20architecture%20with%20floating%20garden%20elements%2C%20premium%20environmental%20photography%20with%20orange%20accent%20lighting%20and%20geometric%20patterns%2C%20cinematic%20green%20innovation%20showcase%20with%20artistic%20composition%2C%20luxury%20sustainable%20design&width=600&height=400&seq=portfolio-6&orientation=landscape",
-            },
-          ].map((project, index) => (
+          {projectsToDisplay.map((project, index) => (
             <div
+            onClick={() => setModalProject(project)} 
               key={index}
               className="group relative overflow-hidden rounded-lg bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
@@ -86,7 +151,7 @@ const Portfolio = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-6 w-full">
-                  <button className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black w-full py-2 rounded-full !rounded-button whitespace-nowrap cursor-pointer">
+                  <button onClick={() => setModalProject(project)} className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black w-full py-2 rounded-full !rounded-button whitespace-nowrap cursor-pointer">
                     View Project
                   </button>
                 </div>
@@ -94,12 +159,58 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
+        {/* Load More Button */}
         <div className="text-center mt-12">
-          <button className="border-2 border-orange-500 text-orange-500 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-medium !rounded-button whitespace-nowrap cursor-pointer">
+          <button
+            onClick={loadMoreProjects}
+            className="border-2 border-orange-500 text-orange-500 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-medium !rounded-button whitespace-nowrap cursor-pointer"
+          >
             View All Work
           </button>
         </div>
       </div>
+
+      {/* Modal */}
+      {modalProject && (
+        <div className="fixed z-[9999] inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm transition-all">
+          {/* Modal Container */}
+          <div
+            className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6 relative flex flex-col items-center animate-fade-in-up"
+            style={{
+              border: "2px solid #fb923c", // orange-400
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setModalProject(null)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-orange-500 text-2xl"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <img
+              src={modalProject.image}
+              alt={modalProject.title}
+              className="w-full rounded-xl mb-6 object-cover max-h-60"
+            />
+            <span className="text-orange-400 text-sm font-semibold mb-1 uppercase tracking-wider">
+              {modalProject.category}
+            </span>
+            <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent text-center">
+              {modalProject.title}
+            </h3>
+            <p className="text-gray-300 text-center mb-4">
+              {modalProject.description}
+            </p>
+            <button
+              onClick={() => setModalProject(null)}
+              className="mt-2 bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black px-8 py-2 rounded-full transition-all duration-300 font-semibold whitespace-nowrap cursor-pointer !rounded-button"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
