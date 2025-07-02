@@ -1,0 +1,13 @@
+declare module 'react-router-hash-link' {
+  import * as React from 'react';
+  import { LinkProps } from 'react-router-dom';
+
+  export interface HashLinkProps extends LinkProps {
+    smooth?: boolean;
+    scroll?: (el: HTMLElement) => void;
+    // Add other props if needed
+  }
+
+  export const HashLink: React.FC<HashLinkProps>;
+  export const NavHashLink: React.FC<HashLinkProps>;
+}
