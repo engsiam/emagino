@@ -1,7 +1,8 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 const AICreativeAgencyWebsite: React.FC = () => {
-  
-  const [activeStep, setActiveStep] = useState(1);
+ 
+
+  const [activeStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +11,7 @@ const AICreativeAgencyWebsite: React.FC = () => {
     budget: 5000,
     description: "",
   });
- 
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -22,9 +23,10 @@ const AICreativeAgencyWebsite: React.FC = () => {
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, budget: parseInt(e.target.value) }));
   };
+
+
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
-     
       {/* Hero Image Sections */}
       <section className="h-screen relative overflow-hidden">
         <video
@@ -170,7 +172,7 @@ const AICreativeAgencyWebsite: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6">
@@ -238,6 +240,7 @@ const AICreativeAgencyWebsite: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* Process Section */}
       {/* Process Section */}
       <section id="process" className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6">
@@ -314,12 +317,11 @@ const AICreativeAgencyWebsite: React.FC = () => {
                       </div>
                     </div>
                     <div
-                      className={`md:absolute relative my-4 md:my-0 left-1/2 transform -translate-x-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center z-10 transition-all duration-500
-${
-  activeStep >= step.step
-    ? "bg-gradient-to-r from-orange-400 to-orange-600 shadow-lg shadow-orange-500/50"
-    : "bg-gray-700"
-}`}
+                      className={`md:absolute relative my-4 md:my-0 left-1/2 transform -translate-x-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center z-10 transition-all duration-500 ${
+                        activeStep >= step.step
+                          ? "bg-gradient-to-r from-orange-400 to-orange-600 shadow-lg shadow-orange-500/50"
+                          : "bg-gray-700"
+                      }`}
                     >
                       <i className={`fas ${step.icon} text-xl md:text-2xl`}></i>
                     </div>
@@ -331,6 +333,7 @@ ${
           </div>
         </div>
       </section>
+
       {/* Vision Section */}
       <section className="py-20 bg-black relative overflow-hidden">
         <div className="absolute inset-0">
