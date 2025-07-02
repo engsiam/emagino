@@ -163,9 +163,9 @@ const AICreativeAgencyWebsite: React.FC = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <h3 className="text-2xl font-bold mb-2">{campaign.title}</h3>
                   <p className="text-gray-300 mb-4">{campaign.description}</p>
-                  <button className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black px-6 py-2 rounded-full transition-all duration-300 transform group-hover:translate-x-2 !rounded-button whitespace-nowrap cursor-pointer">
+                  {/* <button className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black px-6 py-2 rounded-full transition-all duration-300 transform group-hover:translate-x-2 !rounded-button whitespace-nowrap cursor-pointer">
                     View Campaign <i className="fas fa-arrow-right ml-2"></i>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}
