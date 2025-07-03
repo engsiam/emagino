@@ -233,9 +233,7 @@ const AICreativeAgencyWebsite: React.FC = () => {
                   <div className="text-gray-300">Creative Experts</div>
                 </div>
               </div>
-              <button className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black px-8 py-3 rounded-full transition-all duration-300 !rounded-button whitespace-nowrap cursor-pointer">
-                Meet Our Team
-              </button>
+              
             </div>
           </div>
         </div>
