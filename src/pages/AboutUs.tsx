@@ -1,5 +1,3 @@
-
-
 const AboutUs = () => {
   return (
     <div className="bg-gray-900 text-white">
@@ -10,7 +8,8 @@ const AboutUs = () => {
             About <span className="text-orange-500">Emagino</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            We are a passionate team of innovators and creators dedicated to building the future of artificial intelligence.
+            We are a passionate team of innovators and creators dedicated to
+            building the future of artificial intelligence.
           </p>
         </div>
       </div>
@@ -18,9 +17,14 @@ const AboutUs = () => {
       {/* Our Mission Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Mission</h2>
+          <h2 className="text-3xl font-bold text-orange-500 mb-4">
+            Our Mission
+          </h2>
           <p className="text-lg text-gray-300">
-            To empower businesses with transformative AI solutions that drive growth, efficiency, and innovation. We are committed to pushing the boundaries of what's possible and delivering intelligent tools that make a real difference.
+            To empower businesses with transformative AI solutions that drive
+            growth, efficiency, and innovation. We are committed to pushing the
+            boundaries of what's possible and delivering intelligent tools that
+            make a real difference.
           </p>
         </div>
       </div>
@@ -32,8 +36,8 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Story</h2>
           </div>
           <div className="relative">
-            <div className="border-l-4 border-orange-500 absolute h-full top-0 left-1/2 -ml-2"></div>
-            <div className="mb-8 flex justify-between items-center w-full right-timeline">
+            <div className="border-l-4 border-orange-500 absolute h-full top-0 left-1/2 transform -translate-x-1/2"></div>
+            <div className="mb-8 flex justify-between items-center w-full">
               <div className="order-1 w-5/12"></div>
               <div className="z-20 flex items-center order-1 bg-orange-500 shadow-xl w-8 h-8 rounded-full">
                 <h1 className="mx-auto font-semibold text-lg text-white">1</h1>
@@ -45,7 +49,7 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
-            <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+            <div className="mb-8 flex justify-between flex-row-reverse items-center w-full">
               <div className="order-1 w-5/12"></div>
               <div className="z-20 flex items-center order-1 bg-orange-500 shadow-xl w-8 h-8 rounded-full">
                 <h1 className="mx-auto text-white font-semibold text-lg">2</h1>
@@ -57,7 +61,7 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
-            <div className="mb-8 flex justify-between items-center w-full right-timeline">
+            <div className="mb-8 flex justify-between items-center w-full">
               <div className="order-1 w-5/12"></div>
               <div className="z-20 flex items-center order-1 bg-orange-500 shadow-xl w-8 h-8 rounded-full">
                 <h1 className="mx-auto font-semibold text-lg text-white">3</h1>
@@ -76,12 +80,15 @@ const AboutUs = () => {
       {/* Meet the Team Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-orange-500 mb-4">Meet the Team</h2>
+          <h2 className="text-3xl font-bold text-orange-500 mb-4">
+            Meet the Team
+          </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            A diverse group of thinkers, creators, and innovators united by a passion for artificial intelligence.
+            A diverse group of thinkers, creators, and innovators united by a
+            passion for artificial intelligence.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1">
           <div className="text-center group">
             <div className="relative">
               <img
@@ -93,33 +100,6 @@ const AboutUs = () => {
             <h3 className="text-xl font-bold">John Doe</h3>
             <p className="text-gray-400">CEO & Founder</p>
           </div>
-          <div className="text-center group">
-            <img
-              src="https://randomuser.me/api/portraits/women/44.jpg"
-              alt="Team Member 2"
-              className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300"
-            />
-            <h3 className="text-xl font-bold">Jane Smith</h3>
-            <p className="text-gray-400">Chief Technology Officer</p>
-          </div>
-          <div className="text-center group">
-            <img
-              src="https://randomuser.me/api/portraits/men/34.jpg"
-              alt="Team Member 3"
-              className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300"
-            />
-            <h3 className="text-xl font-bold">Samuel Green</h3>
-            <p className="text-gray-400">Lead AI Researcher</p>
-          </div>
-          <div className="text-center group">
-            <img
-              src="https://randomuser.me/api/portraits/women/56.jpg"
-              alt="Team Member 4"
-              className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300"
-            />
-            <h3 className="text-xl font-bold">Maria Garcia</h3>
-            <p className="text-gray-400">Head of Design</p>
-          </div>
         </div>
       </div>
 
@@ -127,41 +107,37 @@ const AboutUs = () => {
       <div className="bg-gray-800 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Values</h2>
+            <h2 className="text-3xl font-bold text-orange-500 mb-4">
+              Our Values
+            </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8 bg-gray-700 rounded-lg transform hover:scale-105 transition-transform duration-300">
               <h3 className="text-2xl font-bold mb-2">Innovation</h3>
               <p className="text-gray-400">
-                We are driven by a desire to innovate and create solutions that push the boundaries of technology.
+                We are driven by a desire to innovate and create solutions that
+                push the boundaries of technology.
               </p>
             </div>
             <div className="p-8 bg-gray-700 rounded-lg transform hover:scale-105 transition-transform duration-300">
               <h3 className="text-2xl font-bold mb-2">Integrity</h3>
               <p className="text-gray-400">
-                We believe in conducting our business with the utmost integrity, ensuring transparency and trust.
+                We believe in conducting our business with the utmost integrity,
+                ensuring transparency and trust.
               </p>
             </div>
             <div className="p-8 bg-gray-700 rounded-lg transform hover:scale-105 transition-transform duration-300">
               <h3 className="text-2xl font-bold mb-2">Customer Centricity</h3>
               <p className="text-gray-400">
-                Our customers are at the heart of everything we do. We are committed to their success and satisfaction.
+                Our customers are at the heart of everything we do. We are
+                committed to their success and satisfaction.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h2 className="text-3xl font-bold mb-4">Join Us on Our Journey</h2>
-        <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-          Be a part of the AI revolution. Let's build the future together.
-        </p>
-        <button className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-          Get in Touch
-        </button>
-      </div>
+     
     </div>
   );
 };
