@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 const AICreativeAgencyWebsite: React.FC = () => {
- 
-
   const [activeStep] = useState<number>(1);
   const [formData, setFormData] = useState({
     name: "",
@@ -23,7 +21,6 @@ const AICreativeAgencyWebsite: React.FC = () => {
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, budget: parseInt(e.target.value) }));
   };
-
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -233,7 +230,6 @@ const AICreativeAgencyWebsite: React.FC = () => {
                   <div className="text-gray-300">Creative Experts</div>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
@@ -442,11 +438,10 @@ const AICreativeAgencyWebsite: React.FC = () => {
                       className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors duration-300 appearance-none"
                     >
                       <option value="">Select Project Type</option>
-                      <option value="brand">Brand Campaign</option>
-                      <option value="product">Product Launch</option>
-                      <option value="social">Social Media Content</option>
-                      <option value="website">Website/App Content</option>
-                      <option value="other">Other</option>
+                      <option value="brand">Short Reels</option>
+                      <option value="product">Ai Ads</option>
+                      <option value="social">Short Ai Films</option>
+                      <option value="website">Still Ai Image</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
                       <i className="fas fa-chevron-down text-gray-400"></i>
@@ -500,7 +495,6 @@ const AICreativeAgencyWebsite: React.FC = () => {
         </div>
       </section>
       {/* Footer */}
-      
     </div>
   );
 };
