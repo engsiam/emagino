@@ -97,7 +97,7 @@ const AboutUs = () => {
                 className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300"
               />
             </div>
-            <h3 className="text-xl font-bold">John Doe</h3>
+            <h3 className="text-xl font-bold">Evans Ugo</h3>
             <p className="text-gray-400">CEO & Founder</p>
           </div>
         </div>

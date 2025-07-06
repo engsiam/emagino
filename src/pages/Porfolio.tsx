@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
+// Type definition for a project
 type Project = {
   title: string;
   category: string;
@@ -9,27 +10,81 @@ type Project = {
   thumbnail_url?: string; // Optional thumbnail for the video
 };
 
+// Sample project data
 const allProjects = [
   {
     title: "Ethereal Dreams Campaign",
     category: "Fashion",
-    description:
-      "AI-generated fashion campaign that increased engagement by 240%",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
     video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
     thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ethereal Dreams Campaign",
+    category: "Fashion",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ethereal Dreams Campaign",
+    category: "Fashion",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ethereal Dreams Campaign",
+    category: "Fashion",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ethereal Dreams Campaign",
+    category: "Fashion",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ethereal Dreams Campaign",
+    category: "Fashion",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ethereal Dreams Campaign",
+    category: "Fashion",
+    description: "AI-generated fashion campaign that increased engagement by 240%",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
   },
 ];
 
+// Portfolio component
 const Portfolio = () => {
-  const [projectsToShow, setProjectsToShow] = useState(3);
+  const [projectsToShow, setProjectsToShow] = useState(6);
   const [modalProject, setModalProject] = useState<Project | null>(null);
 
+  // Display the selected number of projects
   const projectsToDisplay = allProjects.slice(0, projectsToShow);
 
-  const loadMoreProjects = () => {
-    setProjectsToShow((prev) => prev + 3);
+  // Load more projects when clicked
+  const loadMoreProjects = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent page reload if event triggers reload behavior
+    setProjectsToShow((prev) => prev + 3); // Show more projects
   };
 
+  // Extract YouTube video ID from URL
   const extractYouTubeId = (url: string) => {
     const regex =
       /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -37,6 +92,7 @@ const Portfolio = () => {
     return match ? match[1] : null;
   };
 
+  // Manage body overflow when modal is open/closed
   useEffect(() => {
     if (modalProject) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
@@ -44,6 +100,10 @@ const Portfolio = () => {
       document.body.style.overflow = "";
     };
   }, [modalProject]);
+
+  // Functions to open and close modal
+  const openModal = (project: Project) => setModalProject(project);
+  const closeModal = () => setModalProject(null);
 
   return (
     <section id="portfolio" className="py-20 bg-gray-900">
@@ -60,8 +120,8 @@ const Portfolio = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {projectsToDisplay.map((project, index) => (
             <div
-              onClick={() => setModalProject(project)}
               key={index}
+              onClick={() => openModal(project)}
               className="group relative overflow-hidden rounded-lg bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               <div className="h-64 overflow-hidden">
@@ -73,7 +133,7 @@ const Portfolio = () => {
                   />
                 ) : (
                   <img
-                    src={project.image}
+                    src={project.image || project.thumbnail_url} // Fallback to thumbnail if no image
                     alt={project.title}
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                   />
@@ -93,7 +153,7 @@ const Portfolio = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-6 w-full">
                   <button
-                    onClick={() => setModalProject(project)}
+                    onClick={() => openModal(project)}
                     className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black w-full py-2 rounded-full !rounded-button whitespace-nowrap cursor-pointer"
                   >
                     View Project
@@ -104,12 +164,12 @@ const Portfolio = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          {/* <button
+          <button
             onClick={loadMoreProjects}
             className="border-2 border-orange-500 text-orange-500 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-medium !rounded-button whitespace-nowrap cursor-pointer"
           >
             View All Work
-          </button> */}
+          </button>
         </div>
       </div>
 
@@ -125,7 +185,7 @@ const Portfolio = () => {
           >
             {/* Close Button */}
             <button
-              onClick={() => setModalProject(null)}
+              onClick={closeModal}
               className="absolute top-4 right-4 text-gray-400 hover:text-orange-500 text-2xl"
               aria-label="Close"
             >
@@ -154,7 +214,7 @@ const Portfolio = () => {
               </div>
             ) : (
               <img
-                src={modalProject.image}
+                src={modalProject.image || modalProject.thumbnail_url} // Fallback to thumbnail if no image
                 alt={modalProject.title}
                 className="w-full rounded-xl mb-6 object-cover max-h-60"
               />
@@ -169,7 +229,7 @@ const Portfolio = () => {
               {modalProject.description}
             </p>
             <button
-              onClick={() => setModalProject(null)}
+              onClick={closeModal}
               className="mt-2 bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-black px-8 py-2 rounded-full transition-all duration-300 font-semibold whitespace-nowrap cursor-pointer !rounded-button"
             >
               Close
