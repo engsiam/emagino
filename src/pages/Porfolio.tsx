@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Type definition for a project
 type Project = {
@@ -13,9 +13,37 @@ type Project = {
 // Sample project data
 const allProjects = [
   {
+    title: "Xjo molone emagino",
+    category: "Fashion",
+    description:
+      "Xjo molone emaginoXjo molone emagino",
+    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
+    thumbnail_url: "/images/Xjo.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "Ruger giveaway viral",
+    category: "Ai Fashion",
+    description:
+      "Ruger giveaway viral",
+    video_url: "https://www.youtube.com/watch?v=b0rF6CO8bm8", // YouTube URL
+    thumbnail_url: "/images/riger.jpg",
+    image: "/images/Xjo_large.jpg", // Optional large image
+  },
+  {
+    title: "omalay viral with u",
+    category: "Fashion",
+    description:
+      "omalay viral with u",
+    video_url: "https://www.youtube.com/watch?v=3gr6sMebgP4", // YouTube URL
+    thumbnail_url: "/images/omalay.jpg",
+    image: "/images/omalay.jpg", // Optional large image
+  },
+  {
     title: "Ethereal Dreams Campaign",
     category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
+    description:
+      "AI-generated fashion campaign that increased engagement by 240%",
     video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
     thumbnail_url: "/images/Xjo.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
@@ -23,7 +51,8 @@ const allProjects = [
   {
     title: "Ethereal Dreams Campaign",
     category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
+    description:
+      "AI-generated fashion campaign that increased engagement by 240%",
     video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
     thumbnail_url: "/images/Xjo.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
@@ -31,7 +60,8 @@ const allProjects = [
   {
     title: "Ethereal Dreams Campaign",
     category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
+    description:
+      "AI-generated fashion campaign that increased engagement by 240%",
     video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
     thumbnail_url: "/images/Xjo.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
@@ -39,31 +69,8 @@ const allProjects = [
   {
     title: "Ethereal Dreams Campaign",
     category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
-    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
-    thumbnail_url: "/images/Xjo.jpg",
-    image: "/images/Xjo_large.jpg", // Optional large image
-  },
-  {
-    title: "Ethereal Dreams Campaign",
-    category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
-    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
-    thumbnail_url: "/images/Xjo.jpg",
-    image: "/images/Xjo_large.jpg", // Optional large image
-  },
-  {
-    title: "Ethereal Dreams Campaign",
-    category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
-    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
-    thumbnail_url: "/images/Xjo.jpg",
-    image: "/images/Xjo_large.jpg", // Optional large image
-  },
-  {
-    title: "Ethereal Dreams Campaign",
-    category: "Fashion",
-    description: "AI-generated fashion campaign that increased engagement by 240%",
+    description:
+      "AI-generated fashion campaign that increased engagement by 240%",
     video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
     thumbnail_url: "/images/Xjo.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
