@@ -92,7 +92,7 @@ const AboutUs = () => {
           <div className="text-center group">
             <div className="relative">
               <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
+                src="/images/evans.jpg"
                 alt="Team Member 1"
                 className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300"
               />
