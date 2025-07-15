@@ -15,8 +15,7 @@ const allProjects = [
   {
     title: "Xjo molone emagino",
     category: "Fashion",
-    description:
-      "Xjo molone emaginoXjo molone emagino",
+    description: "Xjo molone emaginoXjo molone emagino",
     video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
     thumbnail_url: "/images/Xjo.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
@@ -24,8 +23,7 @@ const allProjects = [
   {
     title: "Ruger giveaway viral",
     category: "Ai Fashion",
-    description:
-      "Ruger giveaway viral",
+    description: "Ruger giveaway viral",
     video_url: "https://www.youtube.com/watch?v=b0rF6CO8bm8", // YouTube URL
     thumbnail_url: "/images/riger.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
@@ -33,8 +31,7 @@ const allProjects = [
   {
     title: "omalay viral with u",
     category: "Fashion",
-    description:
-      "omalay viral with u",
+    description: "omalay viral with u",
     video_url: "https://www.youtube.com/watch?v=3gr6sMebgP4", // YouTube URL
     thumbnail_url: "/images/omalay.jpg",
     image: "/images/omalay.jpg", // Optional large image
@@ -44,9 +41,9 @@ const allProjects = [
     category: "Fashion",
     description:
       "AI-generated fashion campaign that increased engagement by 240%",
-    video_url: "https://youtu.be/f9m0gnOCq70", // YouTube URL
-    thumbnail_url: "/images/Xjo.jpg",
-    image: "/images/Xjo_large.jpg", // Optional large image
+    video_url: "https://www.youtube.com/shorts/pL7T0TMNe1Y?feature=share", // YouTube URL (Shorts)
+    thumbnail_url: "/images/Screenshot_1.png",
+    image: "/images/", // Optional large image
   },
   {
     title: "Ethereal Dreams Campaign",
@@ -75,6 +72,7 @@ const allProjects = [
     thumbnail_url: "/images/Xjo.jpg",
     image: "/images/Xjo_large.jpg", // Optional large image
   },
+  // Add more projects as needed
 ];
 
 // Portfolio component
@@ -85,18 +83,21 @@ const Portfolio = () => {
   // Display the selected number of projects
   const projectsToDisplay = allProjects.slice(0, projectsToShow);
 
+  // Check if all projects are displayed
+  const isAllProjectsDisplayed = projectsToShow >= allProjects.length;
+
   // Load more projects when clicked
   const loadMoreProjects = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent page reload if event triggers reload behavior
-    setProjectsToShow((prev) => prev + 3); // Show more projects
+    setProjectsToShow((prev) => prev + 6); // Show more projects (increment by 6)
   };
 
-  // Extract YouTube video ID from URL
+  // Extract YouTube video ID from URL (updated to handle Shorts)
   const extractYouTubeId = (url: string) => {
     const regex =
-      /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})|(?:youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/;
     const match = url.match(regex);
-    return match ? match[1] : null;
+    return match ? match[1] || match[2] : null;
   };
 
   // Manage body overflow when modal is open/closed
@@ -170,14 +171,17 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <button
-            onClick={loadMoreProjects}
-            className="border-2 border-orange-500 text-orange-500 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-medium !rounded-button whitespace-nowrap cursor-pointer"
-          >
-            View All Work
-          </button>
-        </div>
+        {/* Hide "View All Work" button if all projects are displayed */}
+        {!isAllProjectsDisplayed && (
+          <div className="text-center mt-12">
+            <button
+              onClick={loadMoreProjects}
+              className="border-2 border-orange-500 text-orange-500 hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-medium !rounded-button whitespace-nowrap cursor-pointer"
+            >
+              View All Work
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Modal */}
@@ -207,9 +211,7 @@ const Portfolio = () => {
                     height="315"
                     src={`https://www.youtube.com/embed/${extractYouTubeId(
                       modalProject.video_url
-                    )}?autoplay=1&controls=0&showinfo=0&rel=0&autohide=1&modestbranding=1&loop=1&playlist=${extractYouTubeId(
-                      modalProject.video_url
-                    )}`}
+                    )}?autoplay=1&controls=1&showinfo=0&rel=0&autohide=1&modestbranding=1`}
                     frameBorder="0"
                     allow="autoplay; encrypted-media"
                     allowFullScreen
