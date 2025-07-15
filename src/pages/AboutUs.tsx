@@ -33,7 +33,9 @@ const AboutUs = () => {
       <div className="bg-gray-800 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Story</h2>
+            <h2 className="text-3xl font-bold text-orange-500 mb-4">
+              Our Story
+            </h2>
           </div>
           <div className="relative">
             <div className="border-l-4 border-orange-500 absolute h-full top-0 left-1/2 transform -translate-x-1/2"></div>
@@ -43,9 +45,12 @@ const AboutUs = () => {
                 <h1 className="mx-auto font-semibold text-lg text-white">1</h1>
               </div>
               <div className="order-1 bg-gray-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                <h3 className="mb-3 font-bold text-white text-xl">The Beginning (2020)</h3>
+                <h3 className="mb-3 font-bold text-white text-xl">
+                  The Beginning (2020)
+                </h3>
                 <p className="text-sm leading-snug tracking-wide text-gray-300 text-opacity-100">
-                  Emagino was born from a shared vision among a small group of AI enthusiasts to democratize artificial intelligence.
+                  Emagino was born from a shared vision among a small group of
+                  AI enthusiasts to democratize artificial intelligence.
                 </p>
               </div>
             </div>
@@ -55,9 +60,12 @@ const AboutUs = () => {
                 <h1 className="mx-auto text-white font-semibold text-lg">2</h1>
               </div>
               <div className="order-1 bg-gray-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                <h3 className="mb-3 font-bold text-white text-xl">Growth and Expansion</h3>
+                <h3 className="mb-3 font-bold text-white text-xl">
+                  Growth and Expansion
+                </h3>
                 <p className="text-sm leading-snug tracking-wide text-gray-300 text-opacity-100">
-                  Our dedication to innovation led to rapid growth, expanding our team and capabilities to serve a global clientele.
+                  Our dedication to innovation led to rapid growth, expanding
+                  our team and capabilities to serve a global clientele.
                 </p>
               </div>
             </div>
@@ -67,9 +75,12 @@ const AboutUs = () => {
                 <h1 className="mx-auto font-semibold text-lg text-white">3</h1>
               </div>
               <div className="order-1 bg-gray-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                <h3 className="mb-3 font-bold text-white text-xl">The Future</h3>
+                <h3 className="mb-3 font-bold text-white text-xl">
+                  The Future
+                </h3>
                 <p className="text-sm leading-snug tracking-wide text-gray-300 text-opacity-100">
-                  We continue to explore new frontiers in AI, driven by our commitment to creating a smarter, more connected world.
+                  We continue to explore new frontiers in AI, driven by our
+                  commitment to creating a smarter, more connected world.
                 </p>
               </div>
             </div>
@@ -94,7 +105,7 @@ const AboutUs = () => {
               <img
                 src="/images/evans.jpg"
                 alt="Team Member 1"
-                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300"
+                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-700 group-hover:border-orange-500 transition-all duration-300 object-cover object-top"
               />
             </div>
             <h3 className="text-xl font-bold">Evans Ugo</h3>
@@ -136,8 +147,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-
-     
     </div>
   );
 };
